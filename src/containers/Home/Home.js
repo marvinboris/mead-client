@@ -9,7 +9,9 @@ import './Home.css';
 import SeparatorLine from '../../components/UI/SeparatorLine/SeparatorLine';
 import MediaBlock from '../../components/UI/MediaBlock/MediaBlock';
 import ImageCard from '../../components/UI/ImageCard/ImageCard';
-import Card from '../../components/UI/Card/Card';
+import ArticleCard from '../../components/UI/ArticleCard/ArticleCard';
+import Title from '../../components/UI/Title/Title';
+import PresentationalContainer from '../../components/UI/PresentationalContainer/PresentationalContainer';
 
 import TextileModeImage from '../../assets/images/RICHE-BAZIN-Africain-v-tements-Hommes-Africains-Dashiki-Riche-Pour-Hommes-Maxi-V-tements-D-t1.jpg';
 import Women from '../../assets/images/women.jpg';
@@ -41,44 +43,38 @@ class Home extends Component {
                         </Row>
                     </Container>
                 </div>
-                <div className="bg-white text-dark py-5">
-                    <Container>
-                        <Row>
-                            <MediaBlock lg={4} icon="tshirt" heading="Vêtements africains">
-                                Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
+                <PresentationalContainer>
+                    <Row>
+                        <MediaBlock lg={4} icon="tshirt" heading="Vêtements africains">
+                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
                             </MediaBlock>
-                            <MediaBlock lg={4} icon="store-alt" heading="Boutique en ligne">
-                                Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
+                        <MediaBlock lg={4} icon="store-alt" heading="Boutique en ligne">
+                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
                             </MediaBlock>
-                            <MediaBlock lg={4} icon="handshake" heading="Partenaire sûr">
-                                Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
+                        <MediaBlock lg={4} icon="handshake" heading="Partenaire sûr">
+                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
                             </MediaBlock>
-                        </Row>
-                    </Container>
-                </div>
+                    </Row>
+                </PresentationalContainer>
                 <SeparatorLine />
-                <div className="bg-light text-dark py-5">
-                    <Container>
-                        <Row>
-                            <ImageCard md={6} lg={4} src={Women} height={400}>Femmes</ImageCard>
-                            <ImageCard md={6} lg={4} src={Children} height={400}>Enfants</ImageCard>
-                            <ImageCard md={6} lg={4} src={Men} height={400}>Hommes</ImageCard>
-                        </Row>
-                    </Container>
-                </div>
+                <PresentationalContainer bg="light">
+                    <Row>
+                        <ImageCard md={6} lg={4} src={Women} height={400}>Femmes</ImageCard>
+                        <ImageCard md={6} lg={4} src={Children} height={400}>Enfants</ImageCard>
+                        <ImageCard md={6} lg={4} src={Men} height={400}>Hommes</ImageCard>
+                    </Row>
+                </PresentationalContainer>
                 <SeparatorLine />
-                <div className="bg-white text-dark py-5">
-                    <Container>
-                        <h1 className="mb-3">Quelques uns de <span className="text-info">nos</span> <span className="text-danger">produits</span></h1>
-                        <Owl direction="right">
-                            <Row>
-                                <Card md={6} lg={4} src={Cloth1} link="/" title="Débardeur" subtitle="Trouver le t-shirt parfait" price={5000} />
-                                <Card md={6} lg={4} src={Shoe1} link="/" title="Corater" subtitle="Trouver des produits parfaits" price={5000} />
-                                <Card md={6} lg={4} src={Cloth2} link="/" title="Chemise polo" subtitle="Trouver des produits parfaits" price={5000} />
-                            </Row>
-                        </Owl>
-                    </Container>
-                </div>
+                <PresentationalContainer>
+                    <Title className="mb-3">Quelques uns de <span className="text-info">nos</span> <span className="text-danger">produits</span></Title>
+                    <Owl direction="right">
+                        <Row>
+                            <ArticleCard md={6} lg={4} src={Cloth1} link="/" title="Débardeur" subtitle="Trouver le t-shirt parfait" price={5000} />
+                            <ArticleCard md={6} lg={4} src={Shoe1} link="/" title="Corater" subtitle="Trouver des produits parfaits" price={5000} />
+                            <ArticleCard md={6} lg={4} src={Cloth2} link="/" title="Chemise polo" subtitle="Trouver des produits parfaits" price={5000} />
+                        </Row>
+                    </Owl>
+                </PresentationalContainer>
                 <SeparatorLine />
             </Col>
         );

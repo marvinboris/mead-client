@@ -5,7 +5,7 @@ import NavigationItem from './NavigationItem/NavigationItem';
 import Logo from '../../UI/Logo/Logo';
 
 const navigationItems = ({ isAuth }) => (
-    <Navbar color="white" className="shadow-sm position-sticky" light expand>
+    <Navbar color="white" className="shadow-sm position-sticky" style={{ top: 0, zIndex: 1100 }} light expand>
         <Container>
             <NavbarBrand href="/">
                 <Logo />
