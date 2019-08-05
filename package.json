@@ -9,9 +9,13 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
+    "emoji-js": "^3.4.1",
+    "emoji-picker-react": "^2.1.1",
     "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-animated-css": "^1.2.1",
+    "react-autosize-textarea": "^7.0.0",
     "react-dom": "^16.8.6",
     "react-owl": "^1.0.0",
     "react-redux": "^7.1.0",
@@ -21,7 +25,8 @@
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "rss-parser": "^3.7.1"
+    "rss-parser": "^3.7.1",
+    "socket.io-client": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -6,7 +6,7 @@ const breadcrumb = ({ items, main }) => {
     let itemsComponent = null;
 
     if (items) itemsComponent = items.map((item, i) => (
-        <BreadcrumbItem key={i}><NavLink to={item.to}>{item.content}</NavLink></BreadcrumbItem>
+        <BreadcrumbItem key={i}><NavLink className="text-info" to={item.to}>{item.content}</NavLink></BreadcrumbItem>
     ));
 
     return (

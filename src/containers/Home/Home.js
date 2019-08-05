@@ -10,8 +10,9 @@ import SeparatorLine from '../../components/UI/SeparatorLine/SeparatorLine';
 import MediaBlock from '../../components/UI/MediaBlock/MediaBlock';
 import ImageCard from '../../components/UI/ImageCard/ImageCard';
 import ArticleCard from '../../components/UI/ArticleCard/ArticleCard';
-import Title from '../../components/UI/Title/Title';
+import Title from '../../components/UI/Titles/Title/Title';
 import PresentationalContainer from '../../components/UI/PresentationalContainer/PresentationalContainer';
+import * as actions from '../../store/actions';
 
 import TextileModeImage from '../../assets/images/RICHE-BAZIN-Africain-v-tements-Hommes-Africains-Dashiki-Riche-Pour-Hommes-Maxi-V-tements-D-t1.jpg';
 import Women from '../../assets/images/women.jpg';
@@ -22,6 +23,11 @@ import Shoe1 from '../../assets/images/shoe_1.jpg';
 import Cloth2 from '../../assets/images/cloth_2.jpg';
 
 class Home extends Component {
+    componentDidMount() {
+        if (this.props.auth.authPage) this.props.onAuthPageOff();
+        if (this.props.auth.userPage) this.props.onUserPageOff();
+    }
+
     render() {
         return (
             <Col xs={12} className="Home p-0">
@@ -45,20 +51,14 @@ class Home extends Component {
                 </div>
                 <PresentationalContainer>
                     <Row>
-                        <MediaBlock lg={4} icon="tshirt" heading="Vêtements africains">
-                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
-                            </MediaBlock>
-                        <MediaBlock lg={4} icon="store-alt" heading="Boutique en ligne">
-                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
-                            </MediaBlock>
-                        <MediaBlock lg={4} icon="handshake" heading="Partenaire sûr">
-                            Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
-                            </MediaBlock>
+                        <MediaBlock lg={4} icon="tshirt" heading="Vêtements africains">Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.</MediaBlock>
+                        <MediaBlock lg={4} icon="store-alt" heading="Boutique en ligne">Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.</MediaBlock>
+                        <MediaBlock lg={4} icon="handshake" heading="Partenaire sûr">Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.</MediaBlock>
                     </Row>
                 </PresentationalContainer>
                 <SeparatorLine />
                 <PresentationalContainer bg="light">
-                    <Row>
+                    <Row className="justify-content-center">
                         <ImageCard md={6} lg={4} src={Women} height={400}>Femmes</ImageCard>
                         <ImageCard md={6} lg={4} src={Children} height={400}>Enfants</ImageCard>
                         <ImageCard md={6} lg={4} src={Men} height={400}>Hommes</ImageCard>
@@ -68,7 +68,7 @@ class Home extends Component {
                 <PresentationalContainer>
                     <Title className="mb-3">Quelques uns de <span className="text-info">nos</span> <span className="text-danger">produits</span></Title>
                     <Owl direction="right">
-                        <Row>
+                        <Row className="justify-content-center">
                             <ArticleCard md={6} lg={4} src={Cloth1} link="/" title="Débardeur" subtitle="Trouver le t-shirt parfait" price={5000} />
                             <ArticleCard md={6} lg={4} src={Shoe1} link="/" title="Corater" subtitle="Trouver des produits parfaits" price={5000} />
                             <ArticleCard md={6} lg={4} src={Cloth2} link="/" title="Chemise polo" subtitle="Trouver des produits parfaits" price={5000} />
@@ -81,4 +81,11 @@ class Home extends Component {
     }
 }
 
-export default connect(null, null)(Home);
+const mapStateToProps = state => ({ ...state });
+
+const mapDispatchToProps = dispatch => ({
+    onAuthPageOff: () => dispatch(actions.authPageOff()),
+    onUserPageOff: () => dispatch(actions.userPageOff()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

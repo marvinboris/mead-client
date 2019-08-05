@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import RSSParser from 'rss-parser';
 import { Col, Row, Spinner } from 'reactstrap';
 
 import Breadcrumb from '../../components/UI/Breadcrumb/Breadcrumb';
 import NewsCard from '../../components/UI/NewsCard/NewsCard';
-import Title from '../../components/UI/Title/Title';
+import Title from '../../components/UI/Titles/Title/Title';
 import PresentationalContainer from '../../components/UI/PresentationalContainer/PresentationalContainer';
+import * as actions from '../../store/actions';
 
 class News extends Component {
     state = {
@@ -13,13 +15,15 @@ class News extends Component {
     };
 
     componentDidMount() {
+        if (this.props.auth.authPage) this.props.onAuthPageOff();
+        if (this.props.auth.userPage) this.props.onUserPageOff();
         const parser = new RSSParser();
         const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
         const RSS_SOURCE = 'https://cdn-elle.ladmedia.fr/var/plain_site/storage/flux_rss/fluxMode.xml';
 
         parser.parseURL(CORS_PROXY + RSS_SOURCE)
             .then(res => {
-                this.setState(prevState => this.setState({ data: prevState.data.concat(res) }));
+                this.setState(prevState => ({ data: prevState.data.concat(res) }));
             })
             .catch(err => console.log(err));
     }
@@ -56,4 +60,11 @@ class News extends Component {
     }
 }
 
-export default News;
+const mapStateToProps = state => ({ ...state });
+
+const mapDispatchToProps = dispatch => ({
+    onAuthPageOff: () => dispatch(actions.authPageOff()),
+    onUserPageOff: () => dispatch(actions.userPageOff()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);

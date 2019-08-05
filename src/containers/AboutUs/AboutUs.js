@@ -3,15 +3,21 @@ import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 
 import Breadcrumb from '../../components/UI/Breadcrumb/Breadcrumb';
-import Title from '../../components/UI/Title/Title';
+import Title from '../../components/UI/Titles/Title/Title';
 import MediaBlock from '../../components/UI/MediaBlock/MediaBlock';
 import SeparatorLine from '../../components/UI/SeparatorLine/SeparatorLine';
 import PresentationalContainer from '../../components/UI/PresentationalContainer/PresentationalContainer';
 import TeamMemberCard from '../../components/UI/TeamMemberCard/TeamMemberCard';
+import * as actions from '../../store/actions';
 
 import Blog1 from '../../assets/images/blog_1.jpg';
 
 class AboutUs extends Component {
+    componentDidMount() {
+        if (this.props.auth.authPage) this.props.onAuthPageOff();
+        if (this.props.auth.userPage) this.props.onUserPageOff();
+    }
+
     render() {
         return (
             <Col xs={12} className="AboutUs p-0">
@@ -66,4 +72,11 @@ class AboutUs extends Component {
     }
 }
 
-export default connect(null, null)(AboutUs);
+const mapStateToProps = state => ({ ...state });
+
+const mapDispatchToProps = dispatch => ({
+    onAuthPageOff: () => dispatch(actions.authPageOff()),
+    onUserPageOff: () => dispatch(actions.userPageOff()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutUs);

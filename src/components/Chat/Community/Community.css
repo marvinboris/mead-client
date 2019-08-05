@@ -1,0 +1,26 @@
+.Community .chatbox {
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.Community .chatbox::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.Community .chatbox::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+
+.Community .chatbox::-webkit-scrollbar-thumb
+{
+	background-color: var(--secondary);
+}
+
+.Community .chatbox .bg-my-message {
+    background-color: #ddf;
+}

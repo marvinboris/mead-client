@@ -7,14 +7,23 @@ import thunk from 'redux-thunk';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import './index.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './index.css';
+import authReducer from './store/reducers/auth';
+import csrfReducer from './store/reducers/csrf';
+import shopReducer from './store/reducers/shop';
+import adminReducer from './store/reducers/admin';
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+    auth: authReducer,
+    csrf: csrfReducer,
+    shop: shopReducer,
+    admin: adminReducer,
+});
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
