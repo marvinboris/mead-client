@@ -2,6 +2,7 @@
   "name": "mead",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://marvinboris.github.io/mead",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
@@ -11,6 +12,7 @@
     "bootstrap": "^4.3.1",
     "emoji-js": "^3.4.1",
     "emoji-picker-react": "^2.1.1",
+    "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
@@ -29,6 +31,8 @@
     "socket.io-client": "^2.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
