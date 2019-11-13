@@ -1,0 +1,1 @@
+{"version":3,"sources":["TeamMemberCard.css"],"names":[],"mappings":"AAAA,oBACI,gBAAiB,CACjB,sBACJ,CAEA,6BACI,WAAY,CACZ,YACJ","file":"29.47d6d49a.chunk.css","sourcesContent":[".TeamMemberCard img {\r\n    object-fit: cover;\r\n    object-position: center;\r\n}\r\n\r\n.TeamMemberCard .img-wrapper {\r\n    width: 100px;\r\n    height: 100px;\r\n}"]}
